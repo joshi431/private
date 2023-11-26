@@ -1,0 +1,39 @@
+slip14 q1
+Q1. Write a script in R to create a list of employees (name) and perform thefollowing:
+a. Display names of employees in the list.
+b. Add an employee at the end of the list
+c. Remove the third element of the list.
+list_data <- list("Ram Sharma","Sham Varma","Raj Jadhav", "Ved Sharma")
+print(list_data)
+#create new employee
+new_Emp <-"Kavya Anjali"
+#Add new employee at the end
+list_data <-append(list_data,new_Emp)
+print(list_data)
+#remove 3 employee
+list_data[3] <- NULL
+print(list_data)
+
+slip14 q2
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from apyori import apriori
+df=pd.read_csv('Groceries_dataset.csv')
+records=[]
+for i in range(0,300):
+    records.append([str(df.values[i,j]) for j in range(0,3)])
+association_rule=apriori(records,min_support=0.0045,min_confidence=0.2,min_lift=3,min_length=2)
+association_result=list(association_rule)
+print(association_result[0])
+for item in association_result:
+    pair=item[0]
+    items=[X for X in pair]
+    print("Rule : "+ items[0] + "->"+ items[1])
+    print("Support : "+str(item[1]))
+    print("Confidence : "+str(item[2][0][2]))
+    print("Lift : "+str(item[2][0][3]))
+    print("=================================================================================")
+
+

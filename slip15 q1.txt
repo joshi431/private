@@ -1,0 +1,38 @@
+slip15 q1
+Q1.Write a R program to add, multiply and divide two vectors of integer type.(vector length
+should be minimum 4)
+vector1 = seq(10,40 , length.out=4)
+vector2 = c(20, 10, 40, 40)
+print("Original Vectors:")
+print(vector1)
+print(vector2)
+add= vector1+vector2
+cat("Sum of vector is ",add, "\n")
+sub_vector= vector1-vector2
+cat("Substraction of vector is ",sub_vector, "\n")
+mul_vector= vector1 * vector2
+cat("Multiplication of vector is ",mul_vector, "\n")
+print("Division of two Vectors:")
+div_vector = vector1 / vector2
+print(div_vector)
+
+slip15 q2
+import pandas
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+import matplotlib.pyplot as plt
+
+df = pandas.read_csv("shows.csv")
+
+d = {'UK': 0, 'USA': 1, 'N': 2}
+df['Nationality'] = df['Nationality'].map(d)
+d = {'YES': 1, 'NO': 0}
+df['Go'] = df['Go'].map(d)
+
+features = ['Age', 'Experience', 'Rank', 'Nationality']
+X = df[features]
+y = df['Go']
+dtree = DecisionTreeClassifier()
+dtree = dtree.fit(X, y)
+tree.plot_tree(dtree, feature_names=features)
+plt.show()

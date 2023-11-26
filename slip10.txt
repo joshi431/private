@@ -1,0 +1,29 @@
+slip10
+Q1. Write a R program to find the maximum and the minimum value of a givenvector [10 Marks]
+nums = c(10, 20, 30, 40, 50, 60)
+print('Original vector:')
+print(nums)
+print(paste("Maximum value of the said vector:",max(nums)))
+print(paste("Minimum value of the said vector:",min(nums)))
+
+
+q2
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from apyori import apriori
+df=pd.read_csv('iris_data.csv')
+records=[]
+for i in range(0,150):
+    records.append([str(df.values[i,j]) for j in range(0,4)])
+association_rule=apriori(records,min_support=0.0045,min_confidence=0.2,min_lift=3,min_length=2)
+association_result=list(association_rule)
+print(association_result[0])
+for item in association_result:
+    pair=item[0]
+    items=[X for X in pair]
+    print("Rule : "+ items[0] + "->"+ items[1])
+    print("Support : "+str(item[1]))
+    print("Confidence : "+str(item[2][0][2]))
+    print("Lift : "+str(item[2][0][3]))
+    print("=================================================================================")

@@ -1,0 +1,40 @@
+slip11 q1
+
+Write a R program to find all elements of a given list that are not in another given list.
+l1 = list("x", "y", "z")
+l2 = list("X", "Y", "Z", "x", "y", "z")
+print("Original lists:")
+print(l1)
+print(l2)
+print("All elements of l2 that are not in l1:")
+setdiff(l2, l1)
+
+slip11 q2
+
+import numpy as nm
+import matplotlib.pyplot as mtp
+import pandas as pd
+dataset = pd.read_csv('Wholesale customers data.csv')
+dataset
+x = dataset.iloc[:, [3, 4]].values
+print(x)
+import scipy.cluster.hierarchy as shc
+dendro = shc.dendrogram(shc.linkage(x, method="ward"))
+mtp.title("Dendrogrma Plot")
+mtp.ylabel("Euclidean Distances")
+mtp.xlabel("Customers")
+mtp.show()
+from sklearn.cluster import AgglomerativeClustering
+hc= AgglomerativeClustering(n_clusters=5, affinity='euclidean', linkage='ward')
+y_pred= hc.fit_predict(x)
+mtp.scatter(x[y_pred == 0, 0], x[y_pred == 0, 1], s = 100, c = 'blue', label = 'Cluster 1')
+mtp.scatter(x[y_pred == 1, 0], x[y_pred == 1, 1], s = 100, c = 'green', label = 'Cluster 2')
+mtp.scatter(x[y_pred== 2, 0], x[y_pred == 2, 1], s = 100, c = 'red', label = 'Cluster 3') 
+mtp.scatter(x[y_pred == 3, 0], x[y_pred == 3, 1], s = 100, c = 'cyan', label = 'Cluster 4')
+mtp.scatter(x[y_pred == 4, 0], x[y_pred == 4, 1], s = 100, c = 'magenta', label = 'Cluster 5')
+mtp.title('Clusters of customers')
+mtp.xlabel('Milk')
+mtp.ylabel('Grocery')
+mtp.legend()
+mtp.show() 
+

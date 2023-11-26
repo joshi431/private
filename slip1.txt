@@ -1,0 +1,36 @@
+slip1
+Q1.Write a R program to add, multiply and divide two vectors of integertype. (Vector length should be minimum 4) [10 Marks]
+vector1 = seq(10,40 , length.out=4)
+vector2 = c(20, 10, 40, 40)
+print("Original Vectors:")
+add= vector1+vector2
+cat("Sum of vector is ",add, "\n")
+sub_vector= vector1-vector2
+cat("Substraction of vector is ",sub_vector, "\n")
+mul_vector= vector1 * vector2
+cat("Multiplication of vector is ",mul_vector, "\n")
+print("Division of two Vectors:")
+div_vector = vector1 / vector2
+print(div_vector)
+q2
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+# Load the dataset from the CSV file
+data = pd.read_csv("student_scores.csv")
+
+# Assuming the dataset has columns 'X' and 'y', where 'X' is the independent variable and 'y' is the dependent variable.
+x=data.iloc[:,:-1].values
+y=data.iloc[:,-1].values
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+print("Mean Absolute Error (MAE):", mae)
+print("Mean Squared Error (MSE):", mse)
+print("Root Mean Squared Error (RMSE):", rmse)

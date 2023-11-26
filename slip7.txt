@@ -1,0 +1,22 @@
+slip7
+Q1. Write a R program to create a sequence of numbers from 20 to 50 and findthe mean of numbers from 20 to 60 and sum of numbers from 51 to 91.
+print("Sequence of numbers from 20 to 50:")
+print(seq(20,50))
+print("Mean of numbers from 20 to 60:")
+print(mean(20:60))
+print("Sum of numbers from 51 to 91:")
+print(sum(51:91))
+
+q2
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+x = np.array([1,2,3,4,5,6,7,8])
+y = np.array([7,14,15,18,19,21,26,23])
+slope,intercept,r,p,std_err=stats.linregress(x,y)
+def my_fun(x):
+    return slope*x + intercept
+my_model=list(map(my_fun,x))
+plt.scatter(x,y)
+plt.plot(x,my_model)
+plt.show()

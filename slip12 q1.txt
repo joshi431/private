@@ -1,0 +1,32 @@
+slip12 q1
+
+Q1.Write a R program to create a Dataframes which contain details of 5employees and
+display the details.
+Employee contain (empno,empname,gender,age,designation)
+Employees = data.frame(
+Empno=c(1,2,3,4,5),
+empname=c("Anastasia S","Dima R","Katherine S", "JAMES A","LAURA MARTIN"),
+Gender=c("M","M","F","F","M"),
+Age=c(23,22,25,26,32),
+Designation=c("Clerk","Manager","Exective","CEO","ASSISTANT")
+)
+print("Summary of the data:")
+print(summary(Employees))
+
+slip12 q2
+
+import pandas as pd
+from sklearn import linear_model
+from sklearn.neighbors import KNeighborsRegressor
+df=pd.read_csv('cars.csv')
+x=df[['Weight','Volume']]
+y=df['CO2']
+regr=linear_model.LinearRegression()
+regr.fit(x,y)
+predictedCO2 = regr.predict([[2300, 1300]])
+print("predictedCO2 [weight=2300kg, volume=1300ccm]:")
+print(predictedCO2)
+print("Coefficient [weight, volume]")
+print(regr.coef_)
+
+

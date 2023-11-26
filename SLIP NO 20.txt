@@ -1,0 +1,42 @@
+SLIP NO 20
+Q1. Write a R program to create a data frame from four given vectors.
+name = c('Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas')
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19)
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1)
+qualify = c('yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes')
+print("Original data frame:")
+print(name)
+print(score)
+print(attempts)
+print(qualify)
+df = data.frame(name, score, attempts, qualify)
+print(df)
+
+
+
+slip20 q2
+
+Q2. Write a python program to implement hierarchical Agglomerativeclustering algorithm.
+(Download Customer.csv dataset from github.com).
+Import pandas as pd
+dataset = pd.read_csv('Mall_Customers.csv')
+x = dataset.iloc[:, [3, 4]].values
+import scipy.cluster.hierarchy as shc
+dendro = shc.dendrogram(shc.linkage(x, method="ward"))
+mtp.title("Dendrogrma Plot")
+mtp.ylabel("Euclidean Distances")
+mtp.xlabel("Customers")
+mtp.show()
+from sklearn.cluster import AgglomerativeClustering
+hc= AgglomerativeClustering(n_clusters=5, affinity='euclidean', linkage='ward')
+y_pred= hc.fit_predict(x)
+mtp.scatter(x[y_pred == 0, 0], x[y_pred == 0, 1], s = 100, c = 'blue', label = 'Cluster 1')
+mtp.scatter(x[y_pred == 1, 0], x[y_pred == 1, 1], s = 100, c = 'green', label = 'Cluster 2')
+mtp.scatter(x[y_pred== 2, 0], x[y_pred == 2, 1], s = 100, c = 'red', label = 'Cluster 3')
+mtp.scatter(x[y_pred == 3, 0], x[y_pred == 3, 1], s = 100, c = 'cyan', label = 'Cluster 4')
+mtp.scatter(x[y_pred == 4, 0], x[y_pred == 4, 1], s = 100, c = 'magenta', label = 'Cluster 5')
+mtp.title('Clusters of customers')
+mtp.xlabel('Annual Income (k$)')
+mtp.ylabel('Spending Score (1-100)')
+mtp.legend()
+mtp.show()
